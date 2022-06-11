@@ -1,8 +1,8 @@
+import ContactList from "./components/ContactsList";
+
 function App() {
   return (
-    <h1>
-        Hello All
-    </h1>
+    <ContactList/>
   );  
 }
 
