@@ -1,8 +1,13 @@
-import ContactList from "./components/ContactsList";
+import ContactsListScreen from "./screens/ContactsListScreen";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <ContactList/>
+    <Router>
+      <Routes>
+        <Route path="/" exact element={<ContactsListScreen/>}/>
+      </Routes>
+    </Router>
   );  
 }
 
