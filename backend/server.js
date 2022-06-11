@@ -11,7 +11,7 @@ app.get('/api/contacts', (req, res) => {
     res.json(contacts);
 })
 
-app.get('/api/contacts/:id', (req, res) => {
+app.get('/api/contact/:id', (req, res) => {
     const contact = contacts.find(contact => contact._id == req.params.id);    
     res.json(contact);
 })

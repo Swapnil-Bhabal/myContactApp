@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const ContactsListScreen = () => {
     const [contacts, setContacts] = useState([]);
@@ -19,9 +19,11 @@ const ContactsListScreen = () => {
             <h1>All Contacts</h1>
             <ul>
             {contacts.map((contact) => (
-                    <a href="#">
-                        <li key={contact._id}>{`${contact.firstName} ${contact.lastName}`}</li>
-                    </a>
+                        <li key={contact._id}>
+                            <Link to={`/contact/${contact._id}`}>
+                                {`${contact.firstName} ${contact.lastName}`}
+                            </Link>
+                        </li>
                 )
             )}
             </ul>
