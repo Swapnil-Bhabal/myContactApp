@@ -8,7 +8,7 @@ const ContactInfoScreen = () => {
 
     useEffect(() => {
         const fetchContact = async () => {
-            const { data } = await axios.get(`/api/contact/${params.id}`);
+            const { data } = await axios.get(`/api/contacts/${params.id}`);
             setContact(data);
         };
 
@@ -19,9 +19,7 @@ const ContactInfoScreen = () => {
         <>
             <h1>Info Screen</h1>
             <h2>
-                
-                    {`${contact.firstName} ${contact.contactNumber}`}
-                
+                {`${contact.firstName} ${contact.contactNumber}`}
             </h2>
             <Link to={`/send/${contact._id}`}>
                 <button>Send Message</button>

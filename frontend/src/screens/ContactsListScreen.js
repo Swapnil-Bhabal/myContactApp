@@ -7,7 +7,7 @@ const ContactsListScreen = () => {
 
     useEffect(() => {
         const fetchContacts = async () => {
-            const { data } = await axios.get('/api/contacts');
+            const { data } = await axios.get('/api/contacts/');
             setContacts(data); 
         };
         

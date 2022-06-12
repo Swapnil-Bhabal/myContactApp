@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
+import "./App.css"
 import ContactsListScreen from "./screens/ContactsListScreen";
 import ContactInfoScreen from "./screens/ContactInfoScreen";
 import SendMessageScreen from './screens/SendMessageScreen';
