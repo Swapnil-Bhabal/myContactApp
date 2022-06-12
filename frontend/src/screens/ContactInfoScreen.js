@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from 'axios';
 
 const ContactInfoScreen = () => {
@@ -18,8 +18,15 @@ const ContactInfoScreen = () => {
     return (
         <>
             <h1>Info Screen</h1>
-            <h2>{`${contact.firstName} ${contact.contactNumber}`}</h2>
-            <button>Send Message</button>
+            <h2>
+                
+                    {`${contact.firstName} ${contact.contactNumber}`}
+                
+            </h2>
+            <Link to={`/send/${contact._id}`}>
+                <button>Send Message</button>
+            </Link>
+            
         </>
     )
 }
