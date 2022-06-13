@@ -2,12 +2,6 @@ import { useState, useEffect } from 'react';
 import { useParams, Link as RouterLink } from "react-router-dom";
 import axios from 'axios';
 import { 
-    List,
-    ListItem,
-    ListIcon,
-    OrderedList,
-    UnorderedList,
-    Heading,
     Link,
     Box,
     Button,

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Link as RouterLink,useParams, Redirect } from "react-router-dom";
-import { Button, FormControl, FormLabel, Input, Link } from '@chakra-ui/react';
+import { useParams } from "react-router-dom";
+import { Button, FormControl, FormLabel, Input } from '@chakra-ui/react';
 import axios from 'axios';
 import Header from '../components/Header';
 

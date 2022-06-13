@@ -4,9 +4,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { 
     ListItem,
     OrderedList,
-    Heading,
     Link,
-    Flex
 } from '@chakra-ui/react'
 import Header from '../components/Header';
 
