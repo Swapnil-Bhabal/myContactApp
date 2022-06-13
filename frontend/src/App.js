@@ -6,6 +6,7 @@ import ContactsListScreen from "./screens/ContactsListScreen";
 import ContactInfoScreen from "./screens/ContactInfoScreen";
 import SendMessageScreen from './screens/SendMessageScreen';
 
+
 function App() {
   return (
     <Router>
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" exact element={<ContactsListScreen/>}/>
         <Route path="/contact/:id" element={<ContactInfoScreen/>}/>
         <Route path="send/:id" element={<SendMessageScreen/>}/>
+        
       </Routes>
     </Router>
   );  

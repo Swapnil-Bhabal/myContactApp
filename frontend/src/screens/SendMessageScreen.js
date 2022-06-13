@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
-import { useParams } from "react-router-dom";
+import { Link as RouterLink,useParams, Redirect } from "react-router-dom";
+import { Button, FormControl, FormLabel, Input, Link } from '@chakra-ui/react';
 import axios from 'axios';
+import Header from '../components/Header';
 
 const SendMessageScreen = () => {
     let params = useParams();
@@ -20,12 +22,15 @@ const SendMessageScreen = () => {
     
     return (
         <>
-            <h1>Send Message Screen</h1>
+            <Header title={'Send Message Screen'}/>
             <form action='/api/contacts/message' method="post">
-                <input type="text" name="name" value={`${user.firstName}`}/>
-                <input type="text" name="otp" value={`${otp}`}/>
-                <input type="text" name="message" value={`Hi ${user.firstName}, your OTP is: ${otp}`}/>
-                <input type="submit" value="Send"/>
+            <FormControl p="5">
+                <FormLabel bgColor="gray.800" color="white" fontSize="xl" p="3">User Id</FormLabel><Input type="text" name="_id" value={`${user._id}`}/>
+                <FormLabel bgColor="gray.800" color="white" fontSize="xl" p="3">User Name</FormLabel><Input type="text" name="name" value={`${user.firstName}`}/>
+                <FormLabel bgColor="gray.800" color="white" fontSize="xl" p="3">Otp</FormLabel><Input type="text" name="otp" value={`${otp}`}/>
+                <FormLabel bgColor="gray.800" color="white" fontSize="xl" p="3">Message</FormLabel><Input type="text" name="message" value={`Hi ${user.firstName}, your OTP is: ${otp}`}/>
+                <Button type='submit' mt="2">Send</Button>
+            </FormControl>
             </form>
             
         </>

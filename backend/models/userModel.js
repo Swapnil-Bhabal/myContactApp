@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { boolean } from "webidl-conversions";
 
 const userSchema = mongoose.Schema({
     firstName: {
@@ -19,8 +20,15 @@ const userSchema = mongoose.Schema({
         required: true,
         default: 0,
     },
-},
-{timestamps: true}
+    isDelivered: {
+        type: Boolean,
+        require: true,
+        default: false,
+    },
+    deliveredAt: {
+        type: Date,
+    },
+}, {timestamps: true}
 );
 
 const User = mongoose.model('User', userSchema);

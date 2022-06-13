@@ -3,10 +3,12 @@ import axios from 'axios';
 import { Link as RouterLink } from 'react-router-dom';
 import { 
     ListItem,
-    UnorderedList,
+    OrderedList,
     Heading,
     Link,
+    Flex
 } from '@chakra-ui/react'
+import Header from '../components/Header';
 
 const ContactsListScreen = () => {
     const [contacts, setContacts] = useState([]);
@@ -22,17 +24,17 @@ const ContactsListScreen = () => {
 
     return (
         <>
-            <Heading fontSize='xl' color='black.500'>All Contacts</Heading>
-            <UnorderedList>
+            <Header title={'All Contacts'}/>
+            <OrderedList p="5">
             {contacts.map((contact) => (
-                        <ListItem key={contact._id}>
+                        <ListItem bgColor="gray.800" color="white" fontSize="2xl" p="3" key={contact._id}>
                             <Link as={RouterLink} to={`/contact/${contact._id}`}>
                                 {`${contact.firstName} ${contact.lastName}`}
                             </Link>
                         </ListItem>
                 )
             )}
-            </UnorderedList>
+            </OrderedList>
         </>
     )
 }

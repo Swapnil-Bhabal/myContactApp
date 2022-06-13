@@ -9,7 +9,11 @@ import {
     UnorderedList,
     Heading,
     Link,
+    Box,
+    Button,
 } from '@chakra-ui/react'
+
+import Header from '../components/Header';
 
 const ContactInfoScreen = () => {
     let params = useParams();
@@ -26,12 +30,12 @@ const ContactInfoScreen = () => {
 
     return (
         <>
-            <Heading>Info Screen</Heading>
-            <h2>
+        <Header title={'Info Screen'}/>
+            <Box bgColor="gray.800" color="white" fontSize="2xl" p="3" margin="5">
                 {`${contact.firstName} ${contact.contactNumber}`}
-            </h2>
+            </Box>
             <Link as={RouterLink} to={`/send/${contact._id}`}>
-                <button>Send Message</button>
+                <Button margin="5">Send Message</Button>
             </Link>
             
         </>

@@ -33,25 +33,33 @@ const getUsersById = asyncHandler(async (req, res) => {
 });
 
 const updateUserProfile = asyncHandler(async (req,res) => {
-    const { name, otp, message } = req.body;
+    const { name, otp, message, _id } = req.body;
+    const user = await User.findById(_id);
+    if (user) {
+        user.firstName = name || user.firstName;
+        user.lastName = user.lastName;
+        user.contactNumber = user.contactNumber;
+        user.otp = otp || user.otp;
+        user.isDelivered = true;
+        user.deliveredAt = Date.now();
+    }
+
+    const updatedUser = await user.save();
+
+    res.json({
+        firstName: updatedUser.firstName,
+        otp: updatedUser.otp,
+        deliveredAt: updatedUser.deliveredAt
+    });
+    
     client.messages.create({
         body: message,
         to: '+919029480803',
         from: '+12399466108'
     }).then(message => {
-        // const messageString = message.body;
-        // console.log(messageString);
-        // const dateCreated = message.dateCreated;
-        // const otp = messageString.slice(-6);
-        // const extractedName = messageString.slice(3, messageString.search(','));
-        // const index = contacts.findIndex(contact => contact.firstName === extractedName);
-        // contacts[index].otp = otp;
-        // contacts[index].time = dateCreated;
-        // return contacts;
         console.log(message);
     })
     .catch(error => console.log(error))
-
 })
 
 export { getUsers, getUsersById, updateUserProfile };
