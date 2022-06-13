@@ -21,7 +21,9 @@ const SendMessageScreen = () => {
     return (
         <>
             <h1>Send Message Screen</h1>
-            <form action='/send' method="post">
+            <form action='/api/contacts/message' method="post">
+                <input type="text" name="name" value={`${user.firstName}`}/>
+                <input type="text" name="otp" value={`${otp}`}/>
                 <input type="text" name="message" value={`Hi ${user.firstName}, your OTP is: ${otp}`}/>
                 <input type="submit" value="Send"/>
             </form>

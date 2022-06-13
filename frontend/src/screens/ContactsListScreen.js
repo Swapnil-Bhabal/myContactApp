@@ -1,13 +1,19 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
+import { 
+    ListItem,
+    UnorderedList,
+    Heading,
+    Link,
+} from '@chakra-ui/react'
 
 const ContactsListScreen = () => {
     const [contacts, setContacts] = useState([]);
 
     useEffect(() => {
         const fetchContacts = async () => {
-            const { data } = await axios.get('/api/contacts/');
+            const { data } = await axios.get('/api/contacts');
             setContacts(data); 
         };
         
@@ -16,17 +22,17 @@ const ContactsListScreen = () => {
 
     return (
         <>
-            <h1>All Contacts</h1>
-            <ul>
+            <Heading fontSize='xl' color='black.500'>All Contacts</Heading>
+            <UnorderedList>
             {contacts.map((contact) => (
-                        <li key={contact._id}>
-                            <Link to={`/contact/${contact._id}`}>
+                        <ListItem key={contact._id}>
+                            <Link as={RouterLink} to={`/contact/${contact._id}`}>
                                 {`${contact.firstName} ${contact.lastName}`}
                             </Link>
-                        </li>
+                        </ListItem>
                 )
             )}
-            </ul>
+            </UnorderedList>
         </>
     )
 }

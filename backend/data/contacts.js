@@ -21,4 +21,4 @@ const contacts = [
      },
 ]
 
-export default contacts;
+export default contacts

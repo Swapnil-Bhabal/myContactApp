@@ -1,6 +1,15 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link as RouterLink } from "react-router-dom";
 import axios from 'axios';
+import { 
+    List,
+    ListItem,
+    ListIcon,
+    OrderedList,
+    UnorderedList,
+    Heading,
+    Link,
+} from '@chakra-ui/react'
 
 const ContactInfoScreen = () => {
     let params = useParams();
@@ -17,11 +26,11 @@ const ContactInfoScreen = () => {
 
     return (
         <>
-            <h1>Info Screen</h1>
+            <Heading>Info Screen</Heading>
             <h2>
                 {`${contact.firstName} ${contact.contactNumber}`}
             </h2>
-            <Link to={`/send/${contact._id}`}>
+            <Link as={RouterLink} to={`/send/${contact._id}`}>
                 <button>Send Message</button>
             </Link>
             
