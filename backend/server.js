@@ -3,7 +3,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import connectDb from './config/db.js';
 import userRoutes from './routes/userRoutes.js';
-import contacts from './data/contacts.js';
+// import contacts from './data/contacts.js';
 
 dotenv.config();
 
