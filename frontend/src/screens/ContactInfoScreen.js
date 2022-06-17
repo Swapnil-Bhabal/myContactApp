@@ -5,9 +5,13 @@ import {
     Link,
     Box,
     Button,
+    UnorderedList,
+    ListItem,
+    Flex,
 } from '@chakra-ui/react'
 
 import Header from '../components/Header';
+import Heading from '../components/Heading';
 
 const ContactInfoScreen = () => {
     let params = useParams();
@@ -24,14 +28,21 @@ const ContactInfoScreen = () => {
 
     return (
         <>
-        <Header title={'Info Screen'}/>
-            <Box bgColor="gray.800" color="white" fontSize="2xl" p="3" margin="5">
-                {`${contact.firstName} ${contact.contactNumber}`}
-            </Box>
+            <Header/>
+            <Heading title={'Info Screen'}/>
+            <UnorderedList bgColor="gray.800" color="white" fontSize="xl" p="3" margin="0">
+                <ListItem listStyleType="none">
+                {`Name : ${contact.firstName}`}
+                </ListItem>
+                <ListItem listStyleType="none">
+                {`Number : ${contact.contactNumber}`}
+                </ListItem>
+            </UnorderedList>
             <Link as={RouterLink} to={`/send/${contact._id}`}>
-                <Button margin="5">Send Message</Button>
+                <Flex justifyContent="center">
+                    <Button>Send Message</Button>
+                </Flex>
             </Link>
-            
         </>
     )
 }

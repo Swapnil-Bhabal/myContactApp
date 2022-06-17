@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Button, FormControl, FormLabel, Input } from '@chakra-ui/react';
 import axios from 'axios';
 import Header from '../components/Header';
+import Heading from '../components/Heading';
 
 const SendMessageScreen = () => {
     let params = useParams();
@@ -22,7 +23,8 @@ const SendMessageScreen = () => {
     
     return (
         <>
-            <Header title={'Send Message Screen'}/>
+            <Header/>
+            <Heading title={'Send Message Screen'}/>
             <form action='/api/contacts/message' method="post">
             <FormControl p="5">
                 <FormLabel bgColor="gray.800" color="white" fontSize="xl" p="3">User Id</FormLabel><Input type="text" name="_id" value={`${user._id}`}/>
