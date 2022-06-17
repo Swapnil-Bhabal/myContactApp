@@ -2,7 +2,9 @@ import path from 'path';
 import express from 'express';
 import dotenv from 'dotenv';
 import connectDb from './config/db.js';
+import cors from 'cors';
 import userRoutes from './routes/userRoutes.js';
+import messageRoutes from './routes/messageRoutes.js';
 // import contacts from './data/contacts.js';
 
 dotenv.config();
@@ -11,9 +13,13 @@ connectDb();
 
 const app = express();
 
-app.use(express.urlencoded({extended:false}))
+// app.use(express.urlencoded({extended:false}))
+
+app.use(cors());
+app.use(express.json());
 
 app.use('/api/contacts', userRoutes);
+app.use('/api/otp', messageRoutes);
 
 
 const __dirname = path.resolve();

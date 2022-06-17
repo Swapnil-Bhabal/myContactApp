@@ -3,7 +3,6 @@ import { useParams, Link as RouterLink } from "react-router-dom";
 import axios from 'axios';
 import { 
     Link,
-    Box,
     Button,
     UnorderedList,
     ListItem,

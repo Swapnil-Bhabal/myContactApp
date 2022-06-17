@@ -62,4 +62,10 @@ const updateUserProfile = asyncHandler(async (req,res) => {
     .catch(error => console.log(error))
 })
 
-export { getUsers, getUsersById, updateUserProfile };
+
+const getOtps = asyncHandler(async (req,res) => {
+    const userswithOtp = await User.find({ isDelivered: true });
+    res.json(userswithOtp);
+})
+
+export { getUsers, getUsersById, updateUserProfile, getOtps };
