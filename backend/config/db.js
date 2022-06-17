@@ -1,8 +1,11 @@
 import mongoose from "mongoose";
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const connectDb = async () => {
     try {
-        const conn = await mongoose.connect("mongodb://localhost:27017/myContactApp", {
+        const conn = await mongoose.connect(process.env.MONGO_URI, {
             useUnifiedTopology: true,
             useNewUrlParser: true,
         });
